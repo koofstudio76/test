@@ -204,3 +204,16 @@
   window.addEventListener("load", guard);
   window.addEventListener("resize", guard, {passive:true});
 })();
+
+
+/* 1-second site preloader */
+(() => {
+  const preloader = document.getElementById("sitePreloader");
+  if (!preloader) return;
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      preloader.classList.add("is-hidden");
+      setTimeout(() => preloader.remove(), 650);
+    }, 1000);
+  });
+})();
